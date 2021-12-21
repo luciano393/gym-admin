@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +77,25 @@ WSGI_APPLICATION = 'gym.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'Gym',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://admin:admin@cluster0.hkxcy.mongodb.net/gym?retryWrites=true&w=majority',
+            'username': 'admin',
+            'password': 'admin',
+            'authSource': 'db-name',
+            'authMechanism': 'SCRAM-SHA-1'
+        },
+        'LOGGIN': {
+            'version': 1,
+            'loggers': {
+                'djongo': {
+                    'level': 'DEBUG',
+                    'propagate': False
+                }
+            }
+        }
     }
 }
 
