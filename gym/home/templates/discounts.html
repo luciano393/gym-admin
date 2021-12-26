@@ -1,0 +1,12 @@
+<div class="heading">
+    <h1>Discounts</h1>
+    <button class="btn">Add discount</button>
+</div>
+<div class="box-container">
+    {% for discount in discounts %}
+        <div class="box">
+            <p>{{discount.name}}</p>
+            <h2>% {{discount.percentage}}</h2>
+        </div>
+    {% endfor %}
+</div>

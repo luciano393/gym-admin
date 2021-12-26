@@ -56,7 +56,9 @@ ROOT_URLCONF = 'gym.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,9 +83,9 @@ DATABASES = {
         'NAME': 'Gym',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://admin:admin@cluster0.hkxcy.mongodb.net/gym?retryWrites=true&w=majority',
-            'username': 'admin',
-            'password': 'admin',
+            'host': URI,
+            'username': USERNAME,
+            'password': PASSWORD,
             'authSource': 'db-name',
             'authMechanism': 'SCRAM-SHA-1'
         },
@@ -137,6 +139,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

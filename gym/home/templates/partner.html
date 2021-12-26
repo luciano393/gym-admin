@@ -1,0 +1,38 @@
+<div class="heading">
+    <h1>Partner</h1>
+    <button class="btn">Add Partner</button>
+</div>
+<ul class="list">
+    <li class="list__item">
+        <span>
+            NAME
+        </span>
+        <span>
+            PLANE
+        </span>
+        <span>
+            STATE
+        </span>
+        <span>
+            OPTIONS
+        </span>
+    </li>
+    {% for partner in partners %}
+    <li class="list__item">
+        <span>
+            <ion-icon name="accessibility"></ion-icon>
+            {{ partner.first_name }} {{ partner.last_name }}
+        </span> 
+        <span>
+            {{ partner.plane }}
+        </span> 
+        <span>
+            {{ partner.state }} 
+        </span>
+        <span>
+            <button class="btn">Edit</button>
+            <button class="btn">Delete</button>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
